@@ -15,17 +15,27 @@ import java.util.Date;
  * Author: wytiger
  * Time: 2016/12/12
  * Desc:日志工具类。
- * 能打印线程名、类名、方法名、源文件行数，点击行数并能跳转到源码。
+ * 能打印线程名、类名、方法名、源文件行数;点击行数跳转到源码;支持格式化json打印。
  */
 public class MyLog {
-    private static boolean NEED_WRITE_LOG_FLAG = true;
+    private static  String TAG = "MyLog";
+    private static boolean isWriteLog2File = true;
 
     private MyLog() {
         /* cannot be instantiated */
         throw new UnsupportedOperationException("MyLog cannot be instantiated");
     }
 
-    private static final String TAG = "MyLog";
+    /**
+     * 初始化
+     * @param logTag 全局日志tag
+     * @param isWriteLog 是否需要将日志写到本地文件(需要权限WRITE_EXTERNAL_STORAGE)
+     */
+    public static void init(String logTag, boolean isWriteLog){
+        TAG = logTag;
+        isWriteLog2File = isWriteLog;
+    }    
+    
 
     public static void v(String msg) {
         if (AppBuildConfig.DEBUG) {
@@ -60,7 +70,7 @@ public class MyLog {
             msg = createLog(msg);
             Log.e(TAG, msg);
         }
-        if (AppBuildConfig.DEBUG && NEED_WRITE_LOG_FLAG) {
+        if (AppBuildConfig.DEBUG && isWriteLog2File) {
             writeLog2File(TAG, msg);
         }
     }
@@ -107,7 +117,7 @@ public class MyLog {
             msg = createLog(msg);
             Log.e(tag, msg);
         }
-        if (AppBuildConfig.DEBUG && NEED_WRITE_LOG_FLAG) {
+        if (AppBuildConfig.DEBUG && isWriteLog2File) {
             writeLog2File(tag, msg);
         }
     }
@@ -160,17 +170,17 @@ public class MyLog {
      * 写日志信息到文件，调试用，日志信息会自动换行.
      * 需要写外部存储权限
      *
-     * @param tagDir
+     * @param dir
      * @param data
      */
-    public synchronized static void writeLog2File(String tagDir, String data) {
-        if (TextUtils.isEmpty(tagDir)) {
-            tagDir = "app";
+    public synchronized static void writeLog2File(String dir, String data) {
+        if (TextUtils.isEmpty(dir)) {
+            dir = TAG;
         }
         try {
             String logPath = Environment.getExternalStorageDirectory().getAbsolutePath()
-                    + "/myApp/logs";
-            File logDir = new File(logPath + "/" + tagDir);
+                    + "/MyApp/logs";
+            File logDir = new File(logPath + "/" + dir);
             if (!logDir.exists()) {
                 if (!logDir.mkdirs()) {
                     return;
