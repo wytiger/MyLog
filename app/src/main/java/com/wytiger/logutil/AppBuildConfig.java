@@ -6,6 +6,7 @@ package com.wytiger.logutil;
  */
 
 public class AppBuildConfig {
-    public static final boolean DEBUG = Boolean.parseBoolean("true");
-    public static final boolean RELEASE = Boolean.parseBoolean("fase");
+    public static final boolean DEBUG = true;
+
+
 }
