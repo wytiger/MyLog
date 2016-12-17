@@ -12,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        MyLog.printThreadStackTrace();
+
         //默认TAG
         MyLog.d("Test");
         //指定TAG

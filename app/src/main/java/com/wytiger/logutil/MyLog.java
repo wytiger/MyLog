@@ -131,13 +131,7 @@ public class MyLog {
     }
 
     private static String createLog(String log) {
-        //通过线程栈帧元素获取相应信息
-//        Log.i("MyLog","sElements[0] = " + Thread.currentThread().getStackTrace()[0]);//VMStack
-//        Log.i("MyLog","sElements[1] = " + Thread.currentThread().getStackTrace()[1]);//Thread
-//        Log.i("MyLog","sElements[2] = " + Thread.currentThread().getStackTrace()[2]);//当前方法帧元素
-//        Log.i("MyLog","sElements[3] = " + Thread.currentThread().getStackTrace()[3]);//MyLog.x栈元素
-//        Log.i("MyLog","sElements[4] = " + Thread.currentThread().getStackTrace()[4]);//MyLog.x上层调用者
-
+//        printThreadStackTrace();
         StackTraceElement LogElement = Thread.currentThread().getStackTrace()[4];
         String fullClassName = LogElement.getClassName();
         String threadName = Thread.currentThread().getName();
@@ -147,7 +141,7 @@ public class MyLog {
         int lineNumber = LogElement.getLineNumber();
 
         StringBuffer buffer = new StringBuffer();
-        buffer.append("at ");
+        buffer.append("at ");//链接到源码
         buffer.append("[");
         buffer.append(threadName);
         buffer.append(":");
@@ -163,6 +157,15 @@ public class MyLog {
         buffer.append(log);
 
         return buffer.toString();
+    }
+
+    public static void printThreadStackTrace() {
+        //通过线程栈帧元素获取相应信息
+        Log.i("MyLog","sElements[0] = " + Thread.currentThread().getStackTrace()[0]);//VMStack
+        Log.i("MyLog","sElements[1] = " + Thread.currentThread().getStackTrace()[1]);//Thread
+        Log.i("MyLog","sElements[2] = " + Thread.currentThread().getStackTrace()[2]);//当前方法帧元素
+        Log.i("MyLog","sElements[3] = " + Thread.currentThread().getStackTrace()[3]);//MyLog.x栈元素
+        Log.i("MyLog","sElements[4] = " + Thread.currentThread().getStackTrace()[4]);//MyLog.x上层调用者
     }
 
 
