@@ -13,11 +13,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //默认TAG
-        LogUtil.d("Test");
+        MyLog.d("Test");
         //指定TAG
-        LogUtil.i("TAG","Test2");
+        MyLog.i("TAG","Test2");
         //错误级别的，可以将日志写到文件，方便查看
-        LogUtil.e("TAG","Crash");
+        MyLog.e("TAG","Crash");
 
 
         JSONObject jsonObject = null;
@@ -30,6 +30,6 @@ public class MainActivity extends AppCompatActivity {
         }
         String json = jsonObject.toString();
         //打印json数据，会自动格式化
-        LogUtil.json("TAG",json);
+        MyLog.json("TAG",json);
     }
 }
