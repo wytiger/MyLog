@@ -28,45 +28,45 @@ public class LogUtil {
     private static final String TAG = "MyLog";
 
     public static void v(String msg) {
-        if (BuildConfig.DEBUG) {
+        if (AppBuildConfig.DEBUG) {
             msg = createLog(msg);
             Log.v(TAG, msg);
         }
     }
 
     public static void i(String msg) {
-        if (BuildConfig.DEBUG) {
+        if (AppBuildConfig.DEBUG) {
             msg = createLog(msg);
             Log.i(TAG, msg);
         }
     }
 
     public static void d(String msg) {
-        if (BuildConfig.DEBUG) {
+        if (AppBuildConfig.DEBUG) {
             msg = createLog(msg);
             Log.d(TAG, msg);
         }
     }
 
     public static void w(String msg) {
-        if (BuildConfig.DEBUG) {
+        if (AppBuildConfig.DEBUG) {
             msg = createLog(msg);
             Log.w(TAG, msg);
         }
     }
 
     public static void e(String msg) {
-        if (BuildConfig.DEBUG) {
+        if (AppBuildConfig.DEBUG) {
             msg = createLog(msg);
             Log.e(TAG, msg);
         }
-//        if (BuildConfig.DEBUG && NEED_WRITE_LOG_FLAG) {
-//            writeLog2File(TAG, msg);
-//        }
+        if (AppBuildConfig.DEBUG && NEED_WRITE_LOG_FLAG) {
+            writeLog2File(TAG, msg);
+        }
     }
 
     public static void json(String json) {
-        if (BuildConfig.DEBUG) {
+        if (AppBuildConfig.DEBUG) {
             String msg = JsonFormatUtil.format(json);
             json = createLog("\n"+msg);
             Log.i(TAG, json);
@@ -75,45 +75,45 @@ public class LogUtil {
 
     // 下面是传入自定义tag的函数
     public static void v(String tag, String msg) {
-        if (BuildConfig.DEBUG) {
+        if (AppBuildConfig.DEBUG) {
             msg = createLog(msg);
             Log.v(tag, msg);
         }
     }
 
     public static void i(String tag, String msg) {
-        if (BuildConfig.DEBUG) {
+        if (AppBuildConfig.DEBUG) {
             msg = createLog(msg);
             Log.i(tag, msg);
         }
     }
 
     public static void d(String tag, String msg) {
-        if (BuildConfig.DEBUG) {
+        if (AppBuildConfig.DEBUG) {
             msg = createLog(msg);
             Log.d(tag, msg);
         }
     }
 
     public static void w(String tag, String msg) {
-        if (BuildConfig.DEBUG) {
+        if (AppBuildConfig.DEBUG) {
             msg = createLog(msg);
             Log.w(tag, msg);
         }
     }
 
     public static void e(String tag, String msg) {
-        if (BuildConfig.DEBUG) {
+        if (AppBuildConfig.DEBUG) {
             msg = createLog(msg);
             Log.e(tag, msg);
         }
-//        if (BuildConfig.DEBUG && NEED_WRITE_LOG_FLAG) {
-//            writeLog2File(tag, msg);
-//        }
+        if (AppBuildConfig.DEBUG && NEED_WRITE_LOG_FLAG) {
+            writeLog2File(tag, msg);
+        }
     }
 
     public static void json(String tag, String json) {
-        if (BuildConfig.DEBUG) {
+        if (AppBuildConfig.DEBUG) {
             String msg = JsonFormatUtil.format(json);
             json = createLog("\n"+msg);
             Log.i(tag, json);
@@ -157,7 +157,7 @@ public class LogUtil {
 
 
     /**
-     * 写日志信息到文件，midea/wallet/logs文件夹目录下，调试用，日志信息会自动换行
+     * 写日志信息到文件，调试用，日志信息会自动换行
      *
      * @param tagDir
      * @param data
