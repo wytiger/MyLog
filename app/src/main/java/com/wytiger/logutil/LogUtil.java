@@ -157,7 +157,8 @@ public class LogUtil {
 
 
     /**
-     * 写日志信息到文件，调试用，日志信息会自动换行
+     * 写日志信息到文件，调试用，日志信息会自动换行.
+     * 需要写外部存储权限
      *
      * @param tagDir
      * @param data
