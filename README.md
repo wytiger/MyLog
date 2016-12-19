@@ -12,9 +12,11 @@
 简单使用：  
 
         //默认TAG          
-        MyLog.d("Test");          
+        MyLog.d("Test");       
+        
         //指定TAG          
-        MyLog.i("TAG","Test2");          
+        MyLog.i("TAG","Test2");     
+        
         //错误级别的，可以将日志写到文件，方便查看          
         MyLog.e("TAG","Crash");          
 
