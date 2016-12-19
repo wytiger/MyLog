@@ -6,7 +6,7 @@
 
 
 简单使用：
-        //默认TAG
+        //默认TAG\n
         MyLog.d("Test");
         //指定TAG
         MyLog.i("TAG","Test2");
