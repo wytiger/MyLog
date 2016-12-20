@@ -17,7 +17,7 @@ import java.util.Date;
  * Desc:日志工具类。
  * 能打印线程名、类名、方法名、源文件行数;点击行数跳转到源码;支持格式化json打印。
  */
-public class MyLog {
+public class MyLog {//
     private static  String TAG = "MyLog";
     private static boolean isWriteLog2File = true;
 
