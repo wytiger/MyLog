@@ -17,7 +17,7 @@ import java.util.Date;
  * Desc:日志工具类。
  * 能打印线程名、类名、方法名、源文件行数;点击行数跳转到源码;支持格式化json打印。
  */
-public class MyLog {//
+public class MyLog {
     private static  String TAG = "MyLog";
     private static boolean isWriteLog2File = true;
 
@@ -29,13 +29,14 @@ public class MyLog {//
     /**
      * 初始化
      * @param logTag 全局日志tag
-     * @param isWriteLog 是否需要将日志写到本地文件(需要权限WRITE_EXTERNAL_STORAGE)
      */
-    public static void init(String logTag, boolean isWriteLog){
+    public static void initTAG(String logTag){
         TAG = logTag;
-        isWriteLog2File = isWriteLog;
-    }    
-    
+    }
+    public static void setWriteLog2File(boolean write){
+        isWriteLog2File = write;
+    }
+
 
     public static void v(String msg) {
         if (AppBuildConfig.DEBUG) {
