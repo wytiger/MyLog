@@ -18,7 +18,7 @@ import java.util.Date;
  * 能打印线程名、类名、方法名、源文件行数;点击行数跳转到源码;支持格式化json打印。
  */
 public class MyLog {
-    private static  String TAG = "MyLog";
+    private static String TAG = "MyLog";
     private static boolean isWriteLog2File = true;
 
     private MyLog() {
@@ -28,12 +28,14 @@ public class MyLog {
 
     /**
      * 初始化
+     *
      * @param logTag 全局日志tag
      */
-    public static void initTAG(String logTag){
+    public static void initTAG(String logTag) {
         TAG = logTag;
     }
-    public static void setWriteLog2File(boolean write){
+
+    public static void setWriteLog2File(boolean write) {
         isWriteLog2File = write;
     }
 
@@ -45,6 +47,13 @@ public class MyLog {
         }
     }
 
+    public static void d(String msg) {
+        if (AppBuildConfig.DEBUG) {
+            msg = createLog(msg);
+            Log.d(TAG, msg);
+        }
+    }
+
     public static void i(String msg) {
         if (AppBuildConfig.DEBUG) {
             msg = createLog(msg);
@@ -52,12 +61,6 @@ public class MyLog {
         }
     }
 
-    public static void d(String msg) {
-        if (AppBuildConfig.DEBUG) {
-            msg = createLog(msg);
-            Log.d(TAG, msg);
-        }
-    }
 
     public static void w(String msg) {
         if (AppBuildConfig.DEBUG) {
@@ -79,7 +82,7 @@ public class MyLog {
     public static void json(String json) {
         if (AppBuildConfig.DEBUG) {
             String msg = JsonFormatUtil.format(json);
-            json = createLog("\n"+msg);
+            json = createLog("\n" + msg);
             Log.i(TAG, json);
         }
     }
@@ -92,6 +95,13 @@ public class MyLog {
         }
     }
 
+    public static void d(String tag, String msg) {
+        if (AppBuildConfig.DEBUG) {
+            msg = createLog(msg);
+            Log.d(tag, msg);
+        }
+    }
+
     public static void i(String tag, String msg) {
         if (AppBuildConfig.DEBUG) {
             msg = createLog(msg);
@@ -99,12 +109,6 @@ public class MyLog {
         }
     }
 
-    public static void d(String tag, String msg) {
-        if (AppBuildConfig.DEBUG) {
-            msg = createLog(msg);
-            Log.d(tag, msg);
-        }
-    }
 
     public static void w(String tag, String msg) {
         if (AppBuildConfig.DEBUG) {
@@ -126,7 +130,7 @@ public class MyLog {
     public static void json(String tag, String json) {
         if (AppBuildConfig.DEBUG) {
             String msg = JsonFormatUtil.format(json);
-            json = createLog("\n"+msg);
+            json = createLog("\n" + msg);
             Log.i(tag, json);
         }
     }
@@ -162,11 +166,11 @@ public class MyLog {
 
     public static void printThreadStackTrace() {
         //通过线程栈帧元素获取相应信息
-        Log.i("MyLog","sElements[0] = " + Thread.currentThread().getStackTrace()[0]);//VMStack
-        Log.i("MyLog","sElements[1] = " + Thread.currentThread().getStackTrace()[1]);//Thread
-        Log.i("MyLog","sElements[2] = " + Thread.currentThread().getStackTrace()[2]);//当前方法帧元素
-        Log.i("MyLog","sElements[3] = " + Thread.currentThread().getStackTrace()[3]);//MyLog.x栈元素
-        Log.i("MyLog","sElements[4] = " + Thread.currentThread().getStackTrace()[4]);//MyLog.x上层调用者
+        Log.i("MyLog", "sElements[0] = " + Thread.currentThread().getStackTrace()[0]);//VMStack
+        Log.i("MyLog", "sElements[1] = " + Thread.currentThread().getStackTrace()[1]);//Thread
+        Log.i("MyLog", "sElements[2] = " + Thread.currentThread().getStackTrace()[2]);//当前方法帧元素
+        Log.i("MyLog", "sElements[3] = " + Thread.currentThread().getStackTrace()[3]);//MyLog.x栈元素
+        Log.i("MyLog", "sElements[4] = " + Thread.currentThread().getStackTrace()[4]);//MyLog.x上层调用者
     }
 
 

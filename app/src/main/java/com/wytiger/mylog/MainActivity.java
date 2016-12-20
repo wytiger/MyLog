@@ -15,14 +15,14 @@ public class MainActivity extends AppCompatActivity {
 //        MyLog.printThreadStackTrace();
 
         //默认TAG
-        MyLog.d("Test");
+        MyLog.v("Test");
 
         //指定默认TAG
         MyLog.initTAG("TAG2");
         MyLog.d("Test2");
 
         //指定TAG
-        MyLog.i("TAG","Test3");
+        MyLog.w("TAG","Test3");
         //错误级别的，可以将日志写到文件，方便查看
         MyLog.e("TAG","Crash");
 
