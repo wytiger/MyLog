@@ -1,4 +1,4 @@
-package com.wytiger.logutil;
+package com.wytiger.mylog;
 
 /**
  * description:

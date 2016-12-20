@@ -1,4 +1,4 @@
-package com.wytiger.logutil;
+package com.wytiger.mylog;
 
 import android.os.Environment;
 import android.text.TextUtils;

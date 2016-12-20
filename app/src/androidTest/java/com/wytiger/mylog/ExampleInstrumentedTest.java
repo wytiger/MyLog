@@ -1,4 +1,4 @@
-package com.wytiger.logutil;
+package com.wytiger.mylog;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -1,4 +1,4 @@
-package com.wytiger.logutil;
+package com.wytiger.mylog;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
